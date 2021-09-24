@@ -129,28 +129,28 @@ def upload_files():
 
     return redirect(url_for('index', count=count))
 
-@app.route('./static/images/<filename>')
+@app.route('/<filename>')
 def upload(filename):
     return send_from_directory(app.config['UPLOAD_PATH'], filename)
-    '''
-    <!doctype html>
-    <html>
-    <head>
-        <title>File Upload</title>
-    </head>
-    <body>
-        <h1>File Upload</h1>
-        <form method="POST" action="" enctype="multipart/form-data">
-        <p><input type="file" name="file"></p>
-        <p><input type="submit" value="Submit"></p>
-        </form>
-        <hr>
-        {% for file in files %}
-        <img src="{{ url_for('upload', filename=file) }}" style="width: 64px">
-        {% endfor %}
-    </body>
-    </html>
-    '''
+#     '''
+#     <!doctype html>
+#     <html>
+#     <head>
+#         <title>File Upload</title>
+#     </head>
+#     <body>
+#         <h1>File Upload</h1>
+#         <form method="POST" action="" enctype="multipart/form-data">
+#         <p><input type="file" name="file"></p>
+#         <p><input type="submit" value="Submit"></p>
+#         </form>
+#         <hr>
+#         {% for file in files %}
+#         <img src="{{ url_for('upload', filename=file) }}" style="width: 64px">
+#         {% endfor %}
+#     </body>
+#     </html>
+#     '''
 # @app.route('/uploads/<filename>')
 # def uploaded_file(filename):
     # return f"Total Daphnia count: {request.args.get('count')} <img src='C:/Users/Тимоша/static/images/{filename}'>"
