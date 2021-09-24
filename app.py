@@ -70,7 +70,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
-app.config['UPLOAD_PATH'] = 'C:/Users/Тимоша/static/images'
+app.config['UPLOAD_PATH'] = './static/images'
 
 def validate_image(stream):
     header = stream.read(512)  # 512 bytes should be enough for a header check
@@ -129,7 +129,7 @@ def upload_files():
 
     return redirect(url_for('index', count=count))
 
-@app.route('/C:/Users/Тимоша/static/images/<filename>')
+@app.route('./static/images/<filename>')
 def upload(filename):
     return send_from_directory(app.config['UPLOAD_PATH'], filename)
     '''
