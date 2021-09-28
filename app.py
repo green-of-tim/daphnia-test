@@ -102,7 +102,7 @@ def upload_files():
         imgg = cv2.bitwise_not(imgg)
 
         img1 = cv2.GaussianBlur(imgg, (17, 17), cv2.BORDER_DEFAULT)
-        (T, img2) = cv2.threshold(img1, 105, 255, cv2.THRESH_OTSU)
+        (T, img2) = cv2.threshold(img1, 105, 255, cv2.THRESH_BINARY_INV)
         kernel = np.ones((17,17),np.uint8)
         img2 = cv2.morphologyEx(img2,cv2.MORPH_OPEN,kernel) 
         #     img2 = cv2.GaussianBlur(img2, (7, 7), cv2.BORDER_DEFAULT)
